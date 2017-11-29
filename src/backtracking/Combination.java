@@ -7,7 +7,7 @@ import java.util.Scanner;
  * @author khanh
  *
  */
-public class CombinationEnumeration {
+public class Combination {
 
 	private int n, k, x[];
 
@@ -18,13 +18,13 @@ public class CombinationEnumeration {
 		x = new int[k + 1];
 	}
 
-	private void attemp(int i) {
+	private void attempt(int i) {
 		for (int v = x[i - 1] + 1; v <= n - k + i; ++v) {
 			x[i] = v;
 			if (i == k) {
 				print();
 			} else {
-				attemp(i + 1);
+				attempt(i + 1);
 			}
 		}
 	}
@@ -37,10 +37,10 @@ public class CombinationEnumeration {
 	}
 
 	public static void main(String[] args) {
-		CombinationEnumeration ce = new CombinationEnumeration();
-		ce.readData();
+		Combination c = new Combination();
+		c.readData();
 		//x[0] = 0; not need, by default all element in array is 0
-		ce.attemp(1);
+		c.attempt(1);
 	}
 
 }

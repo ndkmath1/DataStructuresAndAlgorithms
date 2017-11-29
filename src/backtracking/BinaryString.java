@@ -7,7 +7,7 @@ import java.util.Scanner;
  * @author khanh
  *
  */
-public class BinaryStringEnumeration {
+public class BinaryString {
 
 	private int n, bs[];
 
@@ -17,13 +17,13 @@ public class BinaryStringEnumeration {
 		bs = new int[n];
 	}
 
-	private void attemp(int i) {
+	private void attempt(int i) {
 		for (int v = 0; v <= 1; ++v) {
 			bs[i - 1] = v;
 			if (i == n) {
 				print();
 			} else {
-				attemp(i + 1);
+				attempt(i + 1);
 			}
 		}
 	}
@@ -36,9 +36,9 @@ public class BinaryStringEnumeration {
 	}
 
 	public static void main(String[] args) {
-		BinaryStringEnumeration bse = new BinaryStringEnumeration();
-		bse.readData();
-		bse.attemp(1);
+		BinaryString b = new BinaryString();
+		b.readData();
+		b.attempt(1);
 	}
 
 }
