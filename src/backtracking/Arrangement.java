@@ -9,8 +9,9 @@ import java.util.Scanner;
  */
 class Arrangement {
 
-	int n, k, x[]; 
-	boolean mark[]; // default, element in mark array is false
+	int n, k;
+	int[] x;
+	boolean[] mark; // default, element in mark array is false
 	Scanner sc = new Scanner(System.in);
 	int count;
 

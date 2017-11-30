@@ -39,7 +39,7 @@ public class Combination {
 	public static void main(String[] args) {
 		Combination c = new Combination();
 		c.readData();
-		//x[0] = 0; not need, by default all element in array is 0
+		// x[0] = 0; not need, by default all element in array is 0
 		c.attempt(1);
 	}
 

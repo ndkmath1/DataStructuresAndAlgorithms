@@ -8,7 +8,7 @@ import java.util.Scanner;
  *
  */
 public class BinaryString {
-
+	
 	private int n, bs[];
 
 	private void readData() {

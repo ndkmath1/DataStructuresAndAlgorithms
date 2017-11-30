@@ -24,7 +24,7 @@ public class ArrangementRepeat {
 			}
 		}
 	}
-
+	
 	void print() {
 		System.out.print(++count + ". ");
 		for (int i = 0; i < k; ++i) {
