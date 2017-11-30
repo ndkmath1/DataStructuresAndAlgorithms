@@ -1,0 +1,5 @@
+package generation;
+
+class Permutation {
+
+}
