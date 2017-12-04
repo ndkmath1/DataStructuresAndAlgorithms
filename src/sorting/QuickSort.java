@@ -6,7 +6,12 @@ public class QuickSort {
 	
 	void quickSort(int[] a, int low, int hight) {
 		if (low < hight) {
-			int p = partition(a, low, hight);
+			int p = partition2(a, low, hight);
+//			System.out.println("pivot = " + a[p]);
+//			System.out.println("a low p - 1");
+//			printArray(a, low, p - 1);
+//			System.out.println("a p + 1 hight");
+			printArray(a, p + 1, hight);
 			quickSort(a, low, p - 1);
 			quickSort(a, p + 1, hight);
 		}
@@ -16,34 +21,22 @@ public class QuickSort {
 	int partition(int[] a, int low, int hight) {
 		int pivot = a[(low + hight) / 2];
 		int i = low, j = hight;
-		while (true) {
-			while (a[i] <= pivot) {
-				i++;
-			}
-			while (a[j] >= pivot) {
-				--j;
-			}
-			if (i < j) {
-				swap(a, i, j);
-			} else {
-				break;
-			}
-		}
-		return i;
+		
+		return 0;
 	}
 	
 	// pivot =  last element
 	int partition2(int[] a, int low, int hight) {
 		int pivot = a[hight];
-		int i = 0, j = 0;
-		while (true) {
-			for(;a[i] <= pivot && i < hight - 1; ++i);
-			for(;a[j] >= pivot && j < hight - 1; ++j);
-			if (i != j) {
+		int i = low - 1;
+		for (int j = low; j < hight; ++j) {
+			if (a[j] <= pivot) {
+				++i;
 				swap(a, i, j);
 			}
 		}
-		
+		swap(a, i + 1, hight);
+		return  i + 1;
 	}
 	
 	// pivot = first element
@@ -58,9 +51,9 @@ public class QuickSort {
 	
 	// do not using this method when i = j
 	void swap(int[] a, int i, int j) {
-		a[i] ^= a[j];
-		a[j] ^= a[i];
-		a[i] ^= a[j];
+		int temp = a[i];
+		a[i] = a[j];
+		a[j] = temp;
 	}
 	
 	void test() {
@@ -82,6 +75,14 @@ public class QuickSort {
 		for (int i = 0; i < n; ++i) {
 			System.out.print(a[i] + " ");
 		}
+		System.out.println();
+	}
+	
+	void printArray(int[] a, int low, int hight) {
+		for (int i = low; i <= hight; ++i) {
+			System.out.print(a[i] + " ");
+		}
+		System.out.println();
 	}
 	
 	public static void main(String[] args) {
