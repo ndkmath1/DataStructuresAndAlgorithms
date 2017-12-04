@@ -51,9 +51,11 @@ public class QuickSort {
 	
 	// do not using this method when i = j
 	void swap(int[] a, int i, int j) {
-		int temp = a[i];
-		a[i] = a[j];
-		a[j] = temp;
+		if (i != j) {
+			a[i] ^= a[j];
+			a[j] ^= a[i];
+			a[i] ^= a[j];
+		}
 	}
 	
 	void test() {
