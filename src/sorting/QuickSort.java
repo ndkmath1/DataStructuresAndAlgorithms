@@ -11,7 +11,7 @@ public class QuickSort {
 //			System.out.println("a low p - 1");
 //			printArray(a, low, p - 1);
 //			System.out.println("a p + 1 hight");
-			printArray(a, p + 1, hight);
+//			printArray(a, p + 1, hight);
 			quickSort(a, low, p - 1);
 			quickSort(a, p + 1, hight);
 		}
