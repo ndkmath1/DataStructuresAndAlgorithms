@@ -2,7 +2,7 @@ package backtracking;
 
 import java.util.Scanner;
 
-class NQuens {
+class NQuensUseMarkArray {
 	
 	// array a: mark queen position,
 	// b: mark cross northeast - southwest,
