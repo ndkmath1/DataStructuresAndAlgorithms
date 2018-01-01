@@ -18,7 +18,8 @@ public class ATMWithdrawal {
 	static int[] x;
 	static int s;
 	static int sum, count;
-	static boolean check;
+	static int c, cBest;
+	static int[] xBest;
 	
 	static void init() {
 		Scanner sc = new Scanner(System.in);
@@ -29,48 +30,45 @@ public class ATMWithdrawal {
 			t[i] = sc.nextInt();
 		}
 		x = new int[n];
+		cBest = n + 1;
+		xBest = new int[n];
 	}
 	
 	static void attempt(int i) {
-		if (check) {
-			return;
-		}
-//		System.out.println("atempt : " + i);
 		for (int v = 0; v <= 1; ++v) {
 			x[i] = v;
 			sum += x[i] * t[i];
+			c += x[i];
 			if (i == n - 1) {
-				if (sum == s) {
-					printResult();
-					check = true;
-					return;
+				if (sum == s && c < cBest) {
+					cBest = c;
+					for (int k = 0; k < n; ++k) {
+						xBest[k] = x[k];
+					}
 				}
-			} else if (sum <= s) { // i < n - 1
-//				System.out.println("xi = " + x[i]);
-//				System.out.println("i = " + i + ", " + "sum = " + sum);
+			} else if (sum <= s) {
 				attempt(i + 1);
 			}
 			sum -= x[i] * t[i];
+			c -= x[i];
 		}
 	}
 	
 	static void printResult() {
-//		System.out.println(++count + ". ");
+		System.out.println(cBest);
 		for (int i = 0; i < n; ++i) {
 			if (x[i] != 0) {
 				System.out.print(t[i] + " ");
 			}
 		}
-//		System.out.println();
 	}
 	
 	static void test() {
 		init();
 		attempt(0);
-	}
-	
-	static void check() {
-		if (!check) {
+		if (cBest < n + 1) {
+			printResult();
+		} else {
 			System.out.print(-1);
 		}
 	}
